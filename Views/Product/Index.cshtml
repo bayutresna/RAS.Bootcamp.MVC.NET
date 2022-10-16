@@ -1,0 +1,57 @@
+@using System.Collections;
+@model IEnumerable<RAS.Bootcamp.MVC.NET.Models.Entity.Barang> 
+@{
+    ViewData["Title"] = "Data Produk";
+}
+
+<table class="table" >
+    
+    <tr>
+        <th>
+            @Html.DisplayNameFor(produk => produk.Kode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(produk => produk.Nama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(produk => produk.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(produk => produk.Harga)
+        </th>
+        <th>
+            @Html.DisplayNameFor(produk => produk.Stok)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Harga)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stok)
+        </td>
+        <td>
+            <a type="edit" class="btn btn-primary" asp-route-id="@item.Id" asp-controller="Product" asp-action="Editdata">Edit</a>
+        </td>
+        <td> 
+            <a type="delete" class="btn btn-danger" asp-route-id="@item.Id" asp-controller="Product" asp-action="Deletedata">Delete</a>
+        </td>
+    </tr>
+}
+    <th>
+        <a class="btn btn-primary" asp-area="" asp-controller="Product" asp-action="Inputdata">Input Data Produk</a>
+    </th>
+</table>

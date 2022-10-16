@@ -1,0 +1,19 @@
+@model RAS.Bootcamp.MVC.NET.Models.Entity.Penjual
+@{
+    ViewData["Title"] = "Edit Data Penjual";
+}
+
+<h1 style="text-align:center;">@ViewData["Title"] </h1>
+
+<form action = "EditPenjual" method = "post">
+  <div class="mb-3">
+    <label for="" class="form-label">Nama Toko</label>
+    <input class="form-control" id="namatoko" asp-for="NamaToko" value= "@Model.NamaToko">
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Alamat Toko</label>
+    <input class="form-control" id="alamat" asp-for="Alamat" value= "@Model.Alamat" >
+  </div>
+  <input type="hidden" asp-for="Id"></input>
+  <button type="submit" class="btn btn-primary" >Submit</button>
+</form>

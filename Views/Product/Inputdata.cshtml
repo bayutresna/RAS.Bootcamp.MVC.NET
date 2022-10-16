@@ -1,0 +1,30 @@
+@model RAS.Bootcamp.MVC.NET.Models.Entity.Barang
+@{
+    ViewData["Title"] = "Input Data Produk";
+}
+
+<h1 style="text-align:center;">@ViewData["Title"] </h1>
+
+<form action="Inputdata" method = "post">
+  <div class="mb-3">
+    <label for="" class="form-label">Kode Produk</label>
+    <input class="form-control" id="kodeproduk" asp-for="Kode">
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Nama Produk</label>
+    <input class="form-control" id="namaproduk" asp-for="Nama">
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Harga Produk</label>
+    <input class="form-control" id="hargaproduk" asp-for="Harga">
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Banyak Stok</label>
+    <input class="form-control" id="deskripsiproduk" asp-for="Stok"> </input>
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Deskripsi Produk</label>
+    <textarea class="form-control" id="deskripsiproduk" asp-for="Description"> </textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

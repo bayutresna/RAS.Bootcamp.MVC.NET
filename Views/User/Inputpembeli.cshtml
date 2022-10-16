@@ -1,0 +1,18 @@
+@model RAS.Bootcamp.MVC.NET.Models.Entity.Pembeli
+@{
+    ViewData["Title"] = "Input Pembeli";
+}
+
+<h1 style="text-align:center;">@ViewData["Title"] </h1>
+
+<form action="InputPembeli" method = "post">
+  <div class="mb-3">
+    <label for="" class="form-label">Nama Pembeli</label>
+    <input class="form-control" id="namapembeli" asp-for="NamaPembeli">
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Alamat Pembeli</label>
+    <input class="form-control" id="alamatpembeli" asp-for="AlamatPembeli" >
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
