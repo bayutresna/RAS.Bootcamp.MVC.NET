@@ -26,10 +26,13 @@ public class ProductController : Controller
     
     //buat delete data
     [HttpGet]
-    public IActionResult Deletedata(Barang br)
+    public IActionResult Deletedata(int id)
     {
-        
-        Barang deleted = _dbContext.Barangs.First(x => x.Id == br.Id);
+        Barang deleted = _dbContext.Barangs.First(x => x.Id == id);
+        var folder = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot","images");
+        var filepath = Path.Combine(folder,deleted.imgname);
+        System.IO.File.Delete(filepath);
+
         _dbContext.Barangs.Remove(deleted);
         _dbContext.SaveChanges();
          List<Barang> barangs = _dbContext.Barangs.ToList();
@@ -47,9 +50,6 @@ public class ProductController : Controller
     public IActionResult Inputdata(RequestBarang br)
     {   
         var folder = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot","images");
-        if (!Directory.Exists(folder)){
-            Directory.CreateDirectory(folder);
-        }
         var filename = $"{br.Kode}-{br.imgname.FileName}";
         var filepath = Path.Combine(folder,filename);
         using var stream = System.IO.File.Create(filepath);
@@ -80,28 +80,45 @@ public class ProductController : Controller
     public IActionResult Editdata(int id)
     {
         Barang br = _dbContext.Barangs.First(x=> x.Id == id);
-        return View(br);
+
+        RequestBarang data = new RequestBarang{
+            Nama = br.Nama,
+            Id = br.Id,
+            Description = br.Description,
+            Harga = br.Harga,
+            Stok = br.Stok,
+            Kode = br.Kode
+        };
+        return View(data);
     }
 
     [HttpPost]
-    public IActionResult Editdata(Barang br)
+    public IActionResult Editdata(RequestBarang br)
     {   
-        try
-            {
-                Barang updated = _dbContext.Barangs.First(x => x.Id == br.Id);
-                updated.Kode = br.Kode;
-                updated.Harga = br.Harga;
-                updated.Nama = br.Nama;
-                updated.Stok = br.Stok;
-                updated.Description = br.Description;
-                _dbContext.SaveChanges();
-                return RedirectToAction("Index");
-            }
-        catch
-            {
-                return View();
-            }
+        var folder = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot","images");
+
+        var filename = $"{br.Kode}-{br.imgname.FileName}";
+        var filepath = Path.Combine(folder,filename);
+        using var stream = System.IO.File.Create(filepath);
+        if (br.imgname != null){
+            br.imgname.CopyTo(stream);
+        }
+        var url = $"{Request.Scheme}://{Request.Host}{Request.PathBase}/images/{filename}";    
         
+        Barang updated = _dbContext.Barangs.First(x => x.Id == br.Id);
+
+        var Deletedfilepath = Path.Combine(folder,updated.imgname);
+        System.IO.File.Delete(Deletedfilepath);
+
+        updated.Kode = br.Kode;
+        updated.Harga = br.Harga;
+        updated.Nama = br.Nama;
+        updated.Stok = br.Stok;
+        updated.Description = br.Description;
+        updated.url = url;
+        updated.imgname = filename;
+        _dbContext.SaveChanges();
+        return RedirectToAction("Index");  
     }
 
 

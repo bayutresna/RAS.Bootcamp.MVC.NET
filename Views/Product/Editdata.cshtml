@@ -1,18 +1,18 @@
-@model RAS.Bootcamp.MVC.NET.Models.Entity.Barang
+@model RAS.Bootcamp.MVC.NET.Models.RequestBarang
 @{
     ViewData["Title"] = "Edit Data";
 }
 
 <h1 style="text-align:center;">@ViewData["Title"] </h1>
 
-<form action = "Editdata" method = "post">
+<form action="Editdata" method = "post" enctype="multipart/form-data">
   <div class="mb-3">
     <label for="" class="form-label">Kode Produk</label>
-    <input class="form-control" id="kodeproduk" asp-for="Kode" value= "@Model.Kode">
+    <input class="form-control" id="kodeproduk" asp-for="Kode" value="@Model.Kode">
   </div>
   <div class="mb-3">
     <label for="" class="form-label">Nama Produk</label>
-    <input class="form-control" id="namaproduk" asp-for="Nama" value= "@Model.Nama" >
+    <input class="form-control" id="namaproduk" asp-for="Nama" value="@Model.Nama">
   </div>
   <div class="mb-3">
     <label for="" class="form-label">Harga Produk</label>
@@ -26,6 +26,10 @@
     <label for="" class="form-label">Deskripsi Produk</label>
     <textarea class="form-control" id="deskripsiproduk" asp-for="Description" value="@Model.Description"> </textarea>
   </div>
-  <input type="hidden" asp-for="Id"></input>
-  <button type="submit" class="btn btn-primary" >Submit</button>
+  <div class="mb-3">
+    <label for="" class="form-label">Upload Foto Produk</label>
+    <input type="file" class="form-control" id="imgname" asp-for="imgname"> </input>
+  </div>
+  <input type="hidden" asp-for="@Model.Id">
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>

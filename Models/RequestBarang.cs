@@ -1,7 +1,7 @@
 namespace RAS.Bootcamp.MVC.NET.Models;
 
 public class RequestBarang {
-    // public int Id { get;set; }
+    public int Id { get;set; }
     public string? Kode {get;set;}
     public string? Nama {get ;set;}
     public string? Description {get;set;}
