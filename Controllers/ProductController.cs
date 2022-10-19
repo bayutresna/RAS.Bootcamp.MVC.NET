@@ -1,7 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using RAS.Bootcamp.MVC.NET.Models;
+using RAS.Bootcamp.MVC.NET.Models.Request;
 using RAS.Bootcamp.MVC.NET.Models.Entity;
+using RAS.Bootcamp.MVC.NET.Models;
 
 namespace RAS.Bootcamp.MVC.NET.Controllers;
 
@@ -95,8 +96,9 @@ public class ProductController : Controller
     [HttpPost]
     public IActionResult Editdata(RequestBarang br)
     {   
+        
+        //Ngurus Input data baru
         var folder = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot","images");
-
         var filename = $"{br.Kode}-{br.imgname.FileName}";
         var filepath = Path.Combine(folder,filename);
         using var stream = System.IO.File.Create(filepath);
@@ -105,8 +107,8 @@ public class ProductController : Controller
         }
         var url = $"{Request.Scheme}://{Request.Host}{Request.PathBase}/images/{filename}";    
         
+        // Perubahan Data ke database
         Barang updated = _dbContext.Barangs.First(x => x.Id == br.Id);
-
         var Deletedfilepath = Path.Combine(folder,updated.imgname);
         System.IO.File.Delete(Deletedfilepath);
 

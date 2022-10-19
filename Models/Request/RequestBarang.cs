@@ -1,4 +1,4 @@
-namespace RAS.Bootcamp.MVC.NET.Models;
+namespace RAS.Bootcamp.MVC.NET.Models.Request;
 
 public class RequestBarang {
     public int Id { get;set; }
