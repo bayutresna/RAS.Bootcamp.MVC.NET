@@ -57,6 +57,7 @@ public class ProductController : Controller
             br.imgname.CopyTo(stream);
         }
         var url = $"{Request.Scheme}://{Request.Host}{Request.PathBase}/images/{filename}";
+        
         Barang input = new Barang {
             Kode = br.Kode,
             Nama = br.Nama,
