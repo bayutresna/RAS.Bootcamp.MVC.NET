@@ -51,6 +51,14 @@ namespace RAS.Bootcamp.MVC.NET.Models.Migrations
                     b.Property<int>("Stok")
                         .HasColumnType("integer");
 
+                    b.Property<string>("imgname")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("url")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
                     b.HasIndex("IdPenjual");

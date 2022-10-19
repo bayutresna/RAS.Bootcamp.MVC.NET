@@ -44,6 +44,9 @@
             @Html.DisplayFor(modelItem => item.Stok)
         </td>
         <td>
+            <img src = @item.url>
+        </td>
+        <td>
             <a type="edit" class="btn btn-primary" asp-route-id="@item.Id" asp-controller="Product" asp-action="Editdata">Edit</a>
         </td>
         <td> 

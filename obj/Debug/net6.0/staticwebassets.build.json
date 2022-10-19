@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "CD2t0IytLMNkg7jdYdcm0UjbjMc5V4IV2Yz5CPvEFFY=",
+  "Hash": "czyfW1P/oJdtZF8rc8TaQ5TRKkcv/F2VQjsU9moXD/k=",
   "Source": "RAS.Bootcamp.MVC.NET",
   "BasePath": "_content/RAS.Bootcamp.MVC.NET",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "E:\\pelatihan bootcamp digital skill\\hari 2\\proyek first\\RAS.Bootcamp.MVC.NET\\wwwroot\\images\\qqq-20190901_030229.jpg",
+      "SourceId": "RAS.Bootcamp.MVC.NET",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\pelatihan bootcamp digital skill\\hari 2\\proyek first\\RAS.Bootcamp.MVC.NET\\wwwroot\\",
+      "BasePath": "_content/RAS.Bootcamp.MVC.NET",
+      "RelativePath": "images/qqq-20190901_030229.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\qqq-20190901_030229.jpg"
     },
     {
       "Identity": "E:\\pelatihan bootcamp digital skill\\hari 2\\proyek first\\RAS.Bootcamp.MVC.NET\\wwwroot\\js\\site.js",

@@ -13,6 +13,10 @@ public class Barang{
     public string Description {get;set;}
     public decimal Harga {get;set;}
     public int Stok { get; set; }
+    [StringLength(250)]
+    public string? imgname{get;set;}
+    [StringLength(250)]
+    public string url{get;set;}
     
     [ForeignKey("Penjual")]
     public int IdPenjual { get; set;}

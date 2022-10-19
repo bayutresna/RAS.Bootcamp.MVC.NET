@@ -1,11 +1,11 @@
-@model RAS.Bootcamp.MVC.NET.Models.Entity.Barang
+@model RAS.Bootcamp.MVC.NET.Models.RequestBarang
 @{
     ViewData["Title"] = "Input Data Produk";
 }
 
 <h1 style="text-align:center;">@ViewData["Title"] </h1>
 
-<form action="Inputdata" method = "post">
+<form action="Inputdata" method = "post" enctype="multipart/form-data">
   <div class="mb-3">
     <label for="" class="form-label">Kode Produk</label>
     <input class="form-control" id="kodeproduk" asp-for="Kode">
@@ -20,11 +20,15 @@
   </div>
   <div class="mb-3">
     <label for="" class="form-label">Banyak Stok</label>
-    <input class="form-control" id="deskripsiproduk" asp-for="Stok"> </input>
+    <input class="form-control" id="stok" asp-for="Stok"> </input>
   </div>
   <div class="mb-3">
     <label for="" class="form-label">Deskripsi Produk</label>
     <textarea class="form-control" id="deskripsiproduk" asp-for="Description"> </textarea>
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Upload Foto Produk</label>
+    <input type="file" class="form-control" id="imgname" asp-for="imgname"> </input>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
