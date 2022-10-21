@@ -52,12 +52,13 @@ namespace RAS.Bootcamp.MVC.NET.Models.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("imgname")
-                        .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(250)
+                        .HasColumnType("character varying(250)");
 
                     b.Property<string>("url")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(250)
+                        .HasColumnType("character varying(250)");
 
                     b.HasKey("Id");
 
@@ -83,6 +84,9 @@ namespace RAS.Bootcamp.MVC.NET.Models.Migrations
                     b.Property<string>("NamaPembeli")
                         .HasColumnType("text");
 
+                    b.Property<string>("NoHP")
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
                     b.HasIndex("IdUser");
@@ -98,13 +102,16 @@ namespace RAS.Bootcamp.MVC.NET.Models.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Alamat")
+                    b.Property<string>("AlamatToko")
                         .HasColumnType("text");
 
                     b.Property<int>("IdUser")
                         .HasColumnType("integer");
 
                     b.Property<string>("NamaToko")
+                        .HasColumnType("text");
+
+                    b.Property<string>("NoHP")
                         .HasColumnType("text");
 
                     b.HasKey("Id");

@@ -13,6 +13,9 @@
         <th>
             Alamat Pembeli
         </th>
+        <th>
+            No HP Pembeli
+        </th>
         <th></th>
     </tr>
 
@@ -23,6 +26,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.AlamatPembeli)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoHP)
         </td>
         <td>
             <a type="edit" class="btn btn-primary" asp-route-id="@item.Id" asp-controller="User" asp-action="EditPembeli">Edit</a>

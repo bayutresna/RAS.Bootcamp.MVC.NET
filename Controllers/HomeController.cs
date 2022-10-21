@@ -1,9 +1,10 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using RAS.Bootcamp.MVC.NET.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace RAS.Bootcamp.MVC.NET.Controllers;
-
+[Authorize]
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;

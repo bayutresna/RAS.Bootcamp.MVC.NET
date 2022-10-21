@@ -3,9 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using RAS.Bootcamp.MVC.NET.Models.Request;
 using RAS.Bootcamp.MVC.NET.Models.Entity;
 using RAS.Bootcamp.MVC.NET.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace RAS.Bootcamp.MVC.NET.Controllers;
-
+[Authorize]
 public class ProductController : Controller
 {
     private readonly dbcontext _dbContext;
@@ -41,6 +42,7 @@ public class ProductController : Controller
     }
 
     //input data
+    [Authorize(Roles = "Penjual")]
     [HttpGet]
     public IActionResult Inputdata()
     {

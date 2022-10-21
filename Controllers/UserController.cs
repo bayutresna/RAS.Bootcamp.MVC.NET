@@ -1,7 +1,11 @@
 using System.Diagnostics;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using RAS.Bootcamp.MVC.NET.Models;
 using RAS.Bootcamp.MVC.NET.Models.Entity;
+using RAS.Bootcamp.MVC.NET.Models.Request;
 
 namespace RAS.Bootcamp.MVC.NET.Controllers;
 
@@ -78,7 +82,8 @@ public class UserController : Controller
             {
                 Penjual updated = _dbContext.Penjuals.First(x => x.Id == pj.Id);
                 updated.NamaToko = pj.NamaToko;
-                updated.Alamat = pj.Alamat;
+                updated.AlamatToko = pj.AlamatToko;
+                updated.NoHP = pj.NoHP;
                 _dbContext.SaveChanges();
                 return RedirectToAction("IndexPenjual");
             }
@@ -151,6 +156,7 @@ public class UserController : Controller
                 Pembeli updated = _dbContext.Pembelis.First(x => x.Id == pb.Id);
                 updated.NamaPembeli = pb.NamaPembeli;
                 updated.AlamatPembeli = pb.AlamatPembeli;
+                updated.NoHP = pb.NoHP;
                 _dbContext.SaveChanges();
                 return RedirectToAction("IndexPembeli");
             }
@@ -162,83 +168,93 @@ public class UserController : Controller
     }
 
     //BUAT USER
-    // public IActionResult IndexPembeli()
-    // {
-    //     List<Pembeli> pembelis = _dbContext.Pembelis.ToList();
-    //     return View(pembelis);
-    // }
-    
-    //buat delete 
-    // [HttpGet]
-    // public IActionResult DeletePembeli(Pembeli pb)
-    // {
-        
-    //     Pembeli deleted = _dbContext.Pembelis.First(x => x.Id == pb.Id);
-    //     _dbContext.Pembelis.Remove(deleted);
-    //     _dbContext.SaveChanges();
-    //      List<Pembeli> pembelis = _dbContext.Pembelis.ToList();
-    //     return View("IndexPembeli",pembelis);
-    // }
+    public IActionResult Login()
+    {
+        return View();
+    }
+    [HttpPost]
+      public async Task<IActionResult> Login(LoginRequest login)
+    {
+        if (!ModelState.IsValid){
+            return View(login);
+        }
 
-    //input 
-    // [HttpGet]
-    // public IActionResult InputPembeli()
-    // {
-    //     return View();
-    // }
+        var user = _dbContext.Users.FirstOrDefault(x=>x.Username == login.Username);
 
-    // [HttpPost]
-    // public IActionResult InputPembeli(Pembeli pb)
-    // {   
-    //     try
-    //         {
-    //             // produk.Add(pr);
-    //             pb.IdUser = 1;
-    //             _dbContext.Pembelis.Add(pb);
-    //             _dbContext.SaveChanges();
-    //             List<Pembeli> pembelis = _dbContext.Pembelis.ToList();
-    //             return View("IndexPembeli",pembelis);
-    //             // return View("Index");
-    //         }
-    //     catch
-    //         {
-    //             return View("IndexPembeli");
-    //         }
-        
-    // }
+        if (user == null){
+            ViewBag.ErrorMessage = "Invalid Username or Password";
+            return View(login);
+        }
 
-    // //buat edit 
-    // [HttpGet]
-    // public IActionResult EditPembeli(int id)
-    // {
-    //     Pembeli pb = _dbContext.Pembelis.First(x=> x.Id == id);
-    //     return View(pb);
-    // }
+        if (user.Tipe == "Pembeli"){
+            ViewBag.ErrorMessage = "You're not admin or seller";
+            return View(login);
+        }
 
-    // [HttpPost]
-    // public IActionResult EditPembeli(Pembeli pb)
-    // {   
-    //     try
-    //         {
-    //             Pembeli updated = _dbContext.Pembelis.First(x => x.Id == pb.Id);
-    //             updated.NamaPembeli = pb.NamaPembeli;
-    //             updated.AlamatPembeli = pb.AlamatPembeli;
-    //             _dbContext.SaveChanges();
-    //             return RedirectToAction("IndexPembeli");
-    //         }
-    //     catch
-    //         {
-    //             return View();
-    //         }
-        
-    // }
+        var claims = new List<Claim>{
+            new Claim(ClaimTypes.Name,user.Username),
+            new Claim("Fullname",user.Username),
+            new Claim(ClaimTypes.Role,user.Tipe)
+        };
 
+        var claimsIdentity = new ClaimsIdentity(
+            claims, CookieAuthenticationDefaults.AuthenticationScheme
+        );
 
+        var authProperties = new AuthenticationProperties(){
+            ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(20), 
+        };
+
+        await HttpContext.SignInAsync(
+            CookieAuthenticationDefaults.AuthenticationScheme, 
+            new ClaimsPrincipal(claimsIdentity), 
+            authProperties);
+
+        return RedirectToAction("Index", "Home");
+    }
+
+    public async Task<IActionResult> Logout(){
+        await HttpContext.SignOutAsync();
+
+        return RedirectToAction("Login");
+    }
+
+    public IActionResult Register(){
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult Register(RegisterRequest request){
+        if(!ModelState.IsValid){
+
+            return View(request);
+        }
+
+        var newUser = new Models.Entity.User{
+            Username = request.Username,
+            Password = request.Password,
+            Tipe = request.Tipe
+        };
+
+        var penjual = new Models.Entity.Penjual{
+            IdUser = newUser.Id,
+            AlamatToko = request.Alamat,
+            NamaToko = $"{request.FullName} Store",
+            User = newUser
+        };
+
+        _dbContext.Users.Add(newUser);
+        _dbContext.Penjuals.Add(penjual);
+
+        _dbContext.SaveChanges();
+
+        return RedirectToAction("Login");
+    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
-    
+
 }

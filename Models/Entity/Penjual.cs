@@ -11,7 +11,8 @@ public class Penjual {
     [ForeignKey("User")]
     public int IdUser { get; set; }
     public string? NamaToko {get;set;}
-    public string? Alamat { get; set; }
+    public string? AlamatToko { get; set; }
+    public string? NoHP{get;set;}
 
     public virtual User User { get; set;}
     public virtual ICollection<Barang> Barangs { get; set; }

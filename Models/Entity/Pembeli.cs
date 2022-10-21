@@ -1,7 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 namespace RAS.Bootcamp.MVC.NET.Models.Entity;
 
 public class Pembeli {
@@ -11,7 +9,8 @@ public class Pembeli {
     [ForeignKey("User")]
     public int IdUser { get; set; }
     public string? NamaPembeli {get;set;}
-    public string? AlamatPembeli { get; set; }
+    public string? AlamatPembeli { get; set;}
+    public string? NoHP{get;set;}
     public virtual User User { get; set;}
 
 }
