@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using RAS.Bootcamp.MVC.NET.Models;
 using RAS.Bootcamp.MVC.NET.Models.Entity;
 using RAS.Bootcamp.MVC.NET.Models.Request;
+using Microsoft.AspNetCore.Authorization;
 
 namespace RAS.Bootcamp.MVC.NET.Controllers;
 
@@ -28,45 +29,47 @@ public class UserController : Controller
         return View(penjuals);
     }
     
-    //buat delete data Penjual
+    // buat delete data Penjual
     [HttpGet]
     public IActionResult DeletePenjual(Penjual pj)
     {
         
         Penjual deleted = _dbContext.Penjuals.First(x => x.Id == pj.Id);
+        User udelete = _dbContext.Users.First(x=> x.Id == pj.IdUser);
         _dbContext.Penjuals.Remove(deleted);
+        _dbContext.Users.Remove(udelete);
         _dbContext.SaveChanges();
          List<Penjual> penjuals = _dbContext.Penjuals.ToList();
         return View("IndexPenjual",penjuals);
     }
 
-    //input Data Penjual
-    [HttpGet]
-    public IActionResult InputPenjual()
-    {
-        return View();
-    }
+    // //input Data Penjual
+    // [HttpGet]
+    // public IActionResult InputPenjual()
+    // {
+    //     return View();
+    // }
 
-    [HttpPost]
-    public IActionResult InputPenjual(Penjual pj)
-    {   
-        try
-            {
-                // produk.Add(pr);
-                pj.IdUser = 1;
-                _dbContext.Penjuals.Add(pj);
-                _dbContext.SaveChanges();
-                List<Penjual> penjuals = _dbContext.Penjuals.ToList();
-                return View("IndexPenjual",penjuals);
-                // return View("Index");
-            }
-        catch
-            {
-                return View("IndexPenjual");
-            }
+    // [HttpPost]
+    // public IActionResult InputPenjual(Penjual pj)
+    // {   
+    //     try
+    //         {
+    //             // produk.Add(pr);
+    //             pj.IdUser = 1;
+    //             _dbContext.Penjuals.Add(pj);
+    //             _dbContext.SaveChanges();
+    //             List<Penjual> penjuals = _dbContext.Penjuals.ToList();
+    //             return View("IndexPenjual",penjuals);
+    //             // return View("Index");
+    //         }
+    //     catch
+    //         {
+    //             return View("IndexPenjual");
+    //         }
         
-    }
-
+    // }
+    [Authorize(Roles = "Admin")]
     //buat edit 
     [HttpGet]
     public IActionResult EditPenjual(int id)
@@ -75,6 +78,7 @@ public class UserController : Controller
         return View(pj);
     }
 
+    [Authorize(Roles = "Admin")]
     [HttpPost]
     public IActionResult EditPenjual(Penjual pj)
     {   
@@ -94,53 +98,56 @@ public class UserController : Controller
         
     }
     // BUAT PEMBELI YGY
-
+    [Authorize(Roles = "Admin")]
     public IActionResult IndexPembeli()
     {
         List<Pembeli> pembelis = _dbContext.Pembelis.ToList();
         return View(pembelis);
     }
     
-    //buat delete 
+    // //buat delete 
     [HttpGet]
     public IActionResult DeletePembeli(Pembeli pb)
     {
         
         Pembeli deleted = _dbContext.Pembelis.First(x => x.Id == pb.Id);
+        User udelete = _dbContext.Users.First(x=> x.Id == pb.IdUser);
         _dbContext.Pembelis.Remove(deleted);
+        _dbContext.Users.Remove(udelete);
         _dbContext.SaveChanges();
          List<Pembeli> pembelis = _dbContext.Pembelis.ToList();
         return View("IndexPembeli",pembelis);
     }
 
-    //input 
-    [HttpGet]
-    public IActionResult InputPembeli()
-    {
-        return View();
-    }
+    // //input 
+    // [HttpGet]
+    // public IActionResult InputPembeli()
+    // {
+    //     return View();
+    // }
 
-    [HttpPost]
-    public IActionResult InputPembeli(Pembeli pb)
-    {   
-        try
-            {
-                // produk.Add(pr);
-                pb.IdUser = 1;
-                _dbContext.Pembelis.Add(pb);
-                _dbContext.SaveChanges();
-                List<Pembeli> pembelis = _dbContext.Pembelis.ToList();
-                return View("IndexPembeli",pembelis);
-                // return View("Index");
-            }
-        catch
-            {
-                return View("IndexPembeli");
-            }
+    // [HttpPost]
+    // public IActionResult InputPembeli(Pembeli pb)
+    // {   
+    //     try
+    //         {
+    //             // produk.Add(pr);
+    //             pb.IdUser = 1;
+    //             _dbContext.Pembelis.Add(pb);
+    //             _dbContext.SaveChanges();
+    //             List<Pembeli> pembelis = _dbContext.Pembelis.ToList();
+    //             return View("IndexPembeli",pembelis);
+    //             // return View("Index");
+    //         }
+    //     catch
+    //         {
+    //             return View("IndexPembeli");
+    //         }
         
-    }
+    // }
 
     //buat edit 
+    [Authorize(Roles = "Admin")]
     [HttpGet]
     public IActionResult EditPembeli(int id)
     {
@@ -148,6 +155,7 @@ public class UserController : Controller
         return View(pb);
     }
 
+    [Authorize(Roles = "Admin")]
     [HttpPost]
     public IActionResult EditPembeli(Pembeli pb)
     {   
@@ -209,6 +217,7 @@ public class UserController : Controller
             CookieAuthenticationDefaults.AuthenticationScheme, 
             new ClaimsPrincipal(claimsIdentity), 
             authProperties);
+        
 
         return RedirectToAction("Index", "Home");
     }

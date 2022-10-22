@@ -19,6 +19,7 @@ public class ProductController : Controller
         _logger = logger;
         
     }
+    [Authorize(Roles = "Penjual")]
     [HttpGet]
     public IActionResult Index()
     {
@@ -27,6 +28,7 @@ public class ProductController : Controller
     }
     
     //buat delete data
+    [Authorize(Roles = "Penjual")]
     [HttpGet]
     public IActionResult Deletedata(int id)
     {
@@ -48,7 +50,7 @@ public class ProductController : Controller
     {
         return View();
     }
-
+    [Authorize(Roles = "Penjual")]
     [HttpPost]
     public IActionResult Inputdata(RequestBarang br)
     {   
@@ -79,6 +81,7 @@ public class ProductController : Controller
     }
 
     //buat edit data
+    [Authorize(Roles = "Penjual")]
     [HttpGet]
     public IActionResult Editdata(int id)
     {
@@ -94,7 +97,8 @@ public class ProductController : Controller
         };
         return View(data);
     }
-
+    
+    [Authorize(Roles = "Penjual")]
     [HttpPost]
     public IActionResult Editdata(RequestBarang br)
     {   
