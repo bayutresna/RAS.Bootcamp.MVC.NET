@@ -69,7 +69,7 @@ public class UserController : Controller
     //         }
         
     // }
-    [Authorize(Roles = "Admin")]
+
     //buat edit 
     [HttpGet]
     public IActionResult EditPenjual(int id)
@@ -78,7 +78,7 @@ public class UserController : Controller
         return View(pj);
     }
 
-    [Authorize(Roles = "Admin")]
+
     [HttpPost]
     public IActionResult EditPenjual(Penjual pj)
     {   
@@ -98,7 +98,7 @@ public class UserController : Controller
         
     }
     // BUAT PEMBELI YGY
-    [Authorize(Roles = "Admin")]
+
     public IActionResult IndexPembeli()
     {
         List<Pembeli> pembelis = _dbContext.Pembelis.ToList();
@@ -147,7 +147,7 @@ public class UserController : Controller
     // }
 
     //buat edit 
-    [Authorize(Roles = "Admin")]
+
     [HttpGet]
     public IActionResult EditPembeli(int id)
     {
@@ -155,7 +155,7 @@ public class UserController : Controller
         return View(pb);
     }
 
-    [Authorize(Roles = "Admin")]
+
     [HttpPost]
     public IActionResult EditPembeli(Pembeli pb)
     {   
@@ -202,7 +202,8 @@ public class UserController : Controller
         var claims = new List<Claim>{
             new Claim(ClaimTypes.Name,user.Username),
             new Claim("Fullname",user.Username),
-            new Claim(ClaimTypes.Role,user.Tipe)
+            new Claim(ClaimTypes.Role,user.Tipe),
+            new Claim("ID",user.Id.ToString())
         };
 
         var claimsIdentity = new ClaimsIdentity(
@@ -245,18 +246,35 @@ public class UserController : Controller
             Tipe = request.Tipe
         };
 
-        var penjual = new Models.Entity.Penjual{
+        if (request.Tipe == "Penjual"){
+            var penjual = new Models.Entity.Penjual{
             IdUser = newUser.Id,
             AlamatToko = request.Alamat,
             NamaToko = $"{request.FullName} Store",
+            NoHP = request.NoHp,
             User = newUser
         };
 
         _dbContext.Users.Add(newUser);
         _dbContext.Penjuals.Add(penjual);
-
         _dbContext.SaveChanges();
 
+        }
+        
+        if (request.Tipe == "Pembeli"){
+            var pembeli = new Models.Entity.Pembeli{
+                IdUser = newUser.Id,
+                AlamatPembeli = request.Alamat,
+                NamaPembeli = request.FullName,
+                NoHP = request.NoHp,
+                User = newUser
+            };
+
+            _dbContext.Users.Add(newUser);
+            _dbContext.Pembelis.Add(pembeli);
+            _dbContext.SaveChanges();
+        }
+        
         return RedirectToAction("Login");
     }
 

@@ -8,81 +8,85 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = RAS.Bootcamp.MVC.NET
 build_property.RootNamespace = RAS.Bootcamp.MVC.NET
-build_property.ProjectDir = e:\pelatihan bootcamp digital skill\hari 2\proyek first\RAS.Bootcamp.MVC.NET\
+build_property.ProjectDir = E:\pelatihan bootcamp digital skill\hari 2\proyek first\RAS.Bootcamp.MVC.NET\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = e:\pelatihan bootcamp digital skill\hari 2\proyek first\RAS.Bootcamp.MVC.NET
+build_property.MSBuildProjectDirectory = E:\pelatihan bootcamp digital skill\hari 2\proyek first\RAS.Bootcamp.MVC.NET
 build_property._RazorSourceGeneratorDebug = 
 
-[e:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/Home/Index.cshtml]
+[E:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/Home/Forbidden.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxGb3JiaWRkZW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/Home/Privacy.cshtml]
+[E:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/Product/Editdata.cshtml]
+[E:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/Product/Editdata.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxFZGl0ZGF0YS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/Product/Index.cshtml]
+[E:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/Product/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/Product/Inputdata.cshtml]
+[E:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/Product/Inputdata.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbnB1dGRhdGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/Shared/Error.cshtml]
+[E:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/Shared/_ValidationScriptsPartial.cshtml]
+[E:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/User/Editpembeli.cshtml]
+[E:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/User/Editpembeli.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFZGl0cGVtYmVsaS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/User/Editpenjual.cshtml]
+[E:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/User/Editpenjual.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFZGl0cGVuanVhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/User/IndexPembeli.cshtml]
+[E:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/User/IndexPembeli.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleFBlbWJlbGkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/User/IndexPenjual.cshtml]
+[E:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/User/IndexPenjual.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleFBlbmp1YWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/User/Inputpembeli.cshtml]
+[E:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/User/Inputpembeli.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbnB1dHBlbWJlbGkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/User/Inputpenjual.cshtml]
+[E:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/User/Inputpenjual.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbnB1dHBlbmp1YWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/User/Login.cshtml]
+[E:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/User/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/User/Register.cshtml]
+[E:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/User/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/_ViewImports.cshtml]
+[E:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/_ViewStart.cshtml]
+[E:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/Shared/_Layout.cshtml]
+[E:/pelatihan bootcamp digital skill/hari 2/proyek first/RAS.Bootcamp.MVC.NET/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-nczwx5jqtl

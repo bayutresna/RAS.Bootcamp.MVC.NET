@@ -4,5 +4,6 @@ public class RegisterRequest {
     public string Password { get; set; } = null!;
     public string FullName { get; set; } = null!;
     public string Tipe { get; set; } = null!;
-    public string Alamat { get; set; }
+    public string Alamat { get; set; } = null!;
+    public string NoHp {get;set;} = null!;
 }

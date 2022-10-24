@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using RAS.Bootcamp.MVC.NET.Models.Request;
 using RAS.Bootcamp.MVC.NET.Models.Entity;
 using RAS.Bootcamp.MVC.NET.Models;
@@ -23,12 +24,14 @@ public class ProductController : Controller
     [HttpGet]
     public IActionResult Index()
     {
-        List<Barang> barangs = _dbContext.Barangs.ToList();
+        var dataiduser= int.Parse(User.Claims.First(e=> e.Type == "ID").Value);
+        var penjual = _dbContext.Penjuals.First(x=> x.IdUser == dataiduser);
+        List<Barang> barangs = _dbContext.Barangs.Where(e=> e.IdPenjual== penjual.Id).ToList();
         return View(barangs);
     }
     
     //buat delete data
-    [Authorize(Roles = "Penjual")]
+
     [HttpGet]
     public IActionResult Deletedata(int id)
     {
@@ -44,13 +47,13 @@ public class ProductController : Controller
     }
 
     //input data
-    [Authorize(Roles = "Penjual")]
+
     [HttpGet]
     public IActionResult Inputdata()
     {
         return View();
     }
-    [Authorize(Roles = "Penjual")]
+
     [HttpPost]
     public IActionResult Inputdata(RequestBarang br)
     {   
@@ -63,6 +66,9 @@ public class ProductController : Controller
         }
         var url = $"{Request.Scheme}://{Request.Host}{Request.PathBase}/images/{filename}";
         
+        var dataiduser= int.Parse(User.Claims.First(e=> e.Type == "ID").Value);
+        var penjual = _dbContext.Penjuals.First(x=> x.IdUser == dataiduser);
+        
         Barang input = new Barang {
             Kode = br.Kode,
             Nama = br.Nama,
@@ -71,7 +77,7 @@ public class ProductController : Controller
             Stok = br.Stok,
             imgname = filename,
             url = url,
-            IdPenjual = 5
+            IdPenjual = penjual.Id
         };
         _dbContext.Barangs.Add(input);
         _dbContext.SaveChanges();
@@ -81,7 +87,7 @@ public class ProductController : Controller
     }
 
     //buat edit data
-    [Authorize(Roles = "Penjual")]
+
     [HttpGet]
     public IActionResult Editdata(int id)
     {
@@ -98,7 +104,6 @@ public class ProductController : Controller
         return View(data);
     }
     
-    [Authorize(Roles = "Penjual")]
     [HttpPost]
     public IActionResult Editdata(RequestBarang br)
     {   
