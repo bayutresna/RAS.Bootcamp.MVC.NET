@@ -11,4 +11,7 @@ public class dbcontext: DbContext {
     public DbSet<Penjual> Penjuals { get; set; }
     public DbSet<Barang> Barangs { get; set; }
     public DbSet<Pembeli> Pembelis {get;set;}
+    public DbSet<Transaksi> Transaksis{get;set;}
+    public DbSet<ItemTransaksi> ItemTransaksis{get;set;}
+    public DbSet<Keranjang> Keranjangs{get;set;}
 }
