@@ -246,6 +246,12 @@ public class UserController : Controller
             Tipe = request.Tipe
         };
 
+
+        if (request.Tipe == "Admin"){
+            _dbContext.Users.Add(newUser);
+            _dbContext.SaveChanges();
+        }
+
         if (request.Tipe == "Penjual"){
             var penjual = new Models.Entity.Penjual{
             IdUser = newUser.Id,
@@ -254,7 +260,6 @@ public class UserController : Controller
             NoHP = request.NoHp,
             User = newUser
         };
-
         _dbContext.Users.Add(newUser);
         _dbContext.Penjuals.Add(penjual);
         _dbContext.SaveChanges();
@@ -269,7 +274,6 @@ public class UserController : Controller
                 NoHP = request.NoHp,
                 User = newUser
             };
-
             _dbContext.Users.Add(newUser);
             _dbContext.Pembelis.Add(pembeli);
             _dbContext.SaveChanges();

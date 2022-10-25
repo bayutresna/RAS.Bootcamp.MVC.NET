@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "yoV5msgL4jItqVN+RkYoUgd4LlizEce+v1z9ZnpwMCc=",
+  "Hash": "hygjUDSj9nRfAALCAbFDs4qcrN8osrTj3nq1hS1pnUk=",
   "Source": "RAS.Bootcamp.MVC.NET",
   "BasePath": "_content/RAS.Bootcamp.MVC.NET",
   "Mode": "Default",
@@ -102,6 +102,23 @@
       "OriginalItemSpec": "wwwroot\\images\\111-20190901_084032.jpg"
     },
     {
+      "Identity": "E:\\pelatihan bootcamp digital skill\\hari 2\\proyek first\\RAS.Bootcamp.MVC.NET\\wwwroot\\images\\apa-20190901_075758.jpg",
+      "SourceId": "RAS.Bootcamp.MVC.NET",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\pelatihan bootcamp digital skill\\hari 2\\proyek first\\RAS.Bootcamp.MVC.NET\\wwwroot\\",
+      "BasePath": "_content/RAS.Bootcamp.MVC.NET",
+      "RelativePath": "images/apa-20190901_075758.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\apa-20190901_075758.jpg"
+    },
+    {
       "Identity": "E:\\pelatihan bootcamp digital skill\\hari 2\\proyek first\\RAS.Bootcamp.MVC.NET\\wwwroot\\images\\askdj-20190830_165252.jpg",
       "SourceId": "RAS.Bootcamp.MVC.NET",
       "SourceType": "Discovered",
@@ -136,6 +153,23 @@
       "OriginalItemSpec": "wwwroot\\images\\erere-20190901_081926_HDR.jpg"
     },
     {
+      "Identity": "E:\\pelatihan bootcamp digital skill\\hari 2\\proyek first\\RAS.Bootcamp.MVC.NET\\wwwroot\\images\\ijasld-20190901_081520.jpg",
+      "SourceId": "RAS.Bootcamp.MVC.NET",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\pelatihan bootcamp digital skill\\hari 2\\proyek first\\RAS.Bootcamp.MVC.NET\\wwwroot\\",
+      "BasePath": "_content/RAS.Bootcamp.MVC.NET",
+      "RelativePath": "images/ijasld-20190901_081520.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ijasld-20190901_081520.jpg"
+    },
+    {
       "Identity": "E:\\pelatihan bootcamp digital skill\\hari 2\\proyek first\\RAS.Bootcamp.MVC.NET\\wwwroot\\images\\kukuku-20190831_180102.jpg",
       "SourceId": "RAS.Bootcamp.MVC.NET",
       "SourceType": "Discovered",
@@ -151,6 +185,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\kukuku-20190831_180102.jpg"
+    },
+    {
+      "Identity": "E:\\pelatihan bootcamp digital skill\\hari 2\\proyek first\\RAS.Bootcamp.MVC.NET\\wwwroot\\images\\ppp-20190822_073245.jpg",
+      "SourceId": "RAS.Bootcamp.MVC.NET",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\pelatihan bootcamp digital skill\\hari 2\\proyek first\\RAS.Bootcamp.MVC.NET\\wwwroot\\",
+      "BasePath": "_content/RAS.Bootcamp.MVC.NET",
+      "RelativePath": "images/ppp-20190822_073245.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\ppp-20190822_073245.jpg"
     },
     {
       "Identity": "E:\\pelatihan bootcamp digital skill\\hari 2\\proyek first\\RAS.Bootcamp.MVC.NET\\wwwroot\\images\\ppp-20190901_075758.jpg",

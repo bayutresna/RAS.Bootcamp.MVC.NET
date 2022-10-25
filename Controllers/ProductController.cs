@@ -66,7 +66,7 @@ public class ProductController : Controller
         }
         var url = $"{Request.Scheme}://{Request.Host}{Request.PathBase}/images/{filename}";
         
-        var dataiduser= int.Parse(User.Claims.First(e=> e.Type == "ID").Value);
+        int dataiduser= int.Parse(User.Claims.First(e=> e.Type == "ID").Value);
         var penjual = _dbContext.Penjuals.First(x=> x.IdUser == dataiduser);
         
         Barang input = new Barang {
