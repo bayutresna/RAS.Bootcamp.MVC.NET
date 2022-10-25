@@ -1,13 +1,16 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace RAS.Bootcamp.MVC.NET.Models.Entity;
-
+[Index(nameof(IdBarang), IsUnique = true)]
 public class Keranjang {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get;set; }
+    
     [ForeignKey("Barang")]
+    
     public int IdBarang { get; set; }
     public decimal HargaSatuan { get; set; }
     [ForeignKey("User")]
