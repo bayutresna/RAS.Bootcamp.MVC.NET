@@ -44,8 +44,14 @@
                             <a class="nav-link text-dark" id="menuadmin" asp-area="" asp-controller="User" asp-action="IndexPembeli">Data Pembeli</a>
                         </li>
                         }
+                        @if(User.IsInRole("Admin") || User.IsInRole("Penjual")){
+                            <li>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Transaksi" asp-action="DataTransaksi">Data Transaksi</a>    
+                            </li>
+                        }
                     </ul>
                     @if(User.IsInRole("Admin")|| User.IsInRole("Penjual")|| User.IsInRole("Pembeli")){
+                    
                     <a class="btn btn-danger" asp-area="" asp-controller="User" asp-action="Logout">Logout</a>
                     }
                 </div>

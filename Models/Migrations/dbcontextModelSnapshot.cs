@@ -121,10 +121,10 @@ namespace RAS.Bootcamp.MVC.NET.Models.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IdBarang")
-                        .IsUnique();
-
                     b.HasIndex("IdUser");
+
+                    b.HasIndex("IdBarang", "IdUser")
+                        .IsUnique();
 
                     b.ToTable("Keranjangs");
                 });
@@ -194,6 +194,9 @@ namespace RAS.Bootcamp.MVC.NET.Models.Migrations
                     b.Property<string>("AlamatPengiriman")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<int>("IdPenjual")
+                        .HasColumnType("integer");
 
                     b.Property<int>("IdUser")
                         .HasColumnType("integer");

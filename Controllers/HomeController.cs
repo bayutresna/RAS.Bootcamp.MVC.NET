@@ -1,8 +1,10 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using RAS.Bootcamp.MVC.NET.Models.Request;
+using RAS.Bootcamp.MVC.NET.Models.Entity;
 using RAS.Bootcamp.MVC.NET.Models;
 using Microsoft.AspNetCore.Authorization;
-
 namespace RAS.Bootcamp.MVC.NET.Controllers;
 [Authorize]
 public class HomeController : Controller

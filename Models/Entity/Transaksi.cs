@@ -9,6 +9,8 @@ public class Transaksi {
     public int Id { get;set; }
     [ForeignKey("User")]
     public int IdUser {get; set; }
+    [ForeignKey("Penjual")]
+    public int IdPenjual{get;set;}
     public decimal TotalHarga { get; set; }
     public string MetodePembayaran { get; set; }
     public string StatusTransaksi { get; set; }

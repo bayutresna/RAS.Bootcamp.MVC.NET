@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
 namespace RAS.Bootcamp.MVC.NET.Models.Entity;
-[Index(nameof(IdBarang), IsUnique = true)]
+[Index(nameof(IdBarang),nameof(IdUser), IsUnique = true)]
 public class Keranjang {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
