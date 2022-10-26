@@ -24,16 +24,19 @@ public class TransaksiController : Controller
     }
 
     public IActionResult DataTransaksi(){
-        // if (User.IsInRole("Penjual")){
-        //    int datauserid = int.Parse(User.Claims.First(e=> e.Type == "ID").Value);
-        //     ItemTransaksi item = _dbContext.ItemTransaksis.Include(x=> x.Barang).ThenInclude(x=> x.Penjual).First(x=> x.Barang.IdPenjual == datauserid);
-        //     int dataidtransaksi = item.IdTransaksi;
-        //     List<Transaksi> ltr = _dbContext.Transaksis.Include(x=> x.ItemTransaksi).ThenInclude(x=>x.Barang).Where(x=> x.Id == dataidtransaksi).ToList();
-        //     return View(ltr); 
-        // }
-        
+        if (User.IsInRole("Penjual")){
+            int datauserid = int.Parse(User.Claims.First(e=> e.Type == "ID").Value);
+            Penjual pj = _dbContext.Penjuals.First(x=> x.IdUser == datauserid);
+            var tr = (from a in _dbContext.Transaksis
+                            join b in _dbContext.ItemTransaksis on a.Id equals b.IdTransaksi
+                            join c in _dbContext.Barangs on b.IdBarang equals c.Id
+                            where c.IdPenjual == pj.Id
+                            group a by a.Id into transaksi
+                            select transaksi.FirstOrDefault()).ToList(); 
+            return View(tr); 
+        }
         List<Transaksi> alltr = _dbContext.Transaksis.ToList();
-            return View(alltr);  
+        return View(alltr);
     }
     public IActionResult DetailTransaksi(int id){
         var tr = _dbContext.Transaksis.First(x=> x.Id == id);
@@ -64,14 +67,28 @@ public class TransaksiController : Controller
         tr.StatusBayar = "Dibatalkan";
         tr.StatusTransaksi = "Dibatalkan";
         _dbContext.SaveChanges();
-        List<Transaksi> alltr = _dbContext.Transaksis.ToList();
-        return View("DataTransaksi",alltr);
+        int datauserid = int.Parse(User.Claims.First(e=> e.Type == "ID").Value);
+            Penjual pj = _dbContext.Penjuals.First(x=> x.IdUser == datauserid);
+            var atr = (from a in _dbContext.Transaksis
+                            join b in _dbContext.ItemTransaksis on a.Id equals b.IdTransaksi
+                            join c in _dbContext.Barangs on b.IdBarang equals c.Id
+                            where c.IdPenjual == pj.Id
+                            group a by a.Id into transaksi
+                            select transaksi.FirstOrDefault()).ToList(); 
+            return View("DataTransaksi",atr); 
     }
     public IActionResult KirimBarang (int id){
         var tr = _dbContext.Transaksis.First(x=> x.Id == id);
         tr.StatusTransaksi = "Dikirim";
         _dbContext.SaveChanges();
-        List<Transaksi> alltr = _dbContext.Transaksis.ToList();
-        return View("DataTransaksi",alltr);
+        int datauserid = int.Parse(User.Claims.First(e=> e.Type == "ID").Value);
+            Penjual pj = _dbContext.Penjuals.First(x=> x.IdUser == datauserid);
+            var atr = (from a in _dbContext.Transaksis
+                            join b in _dbContext.ItemTransaksis on a.Id equals b.IdTransaksi
+                            join c in _dbContext.Barangs on b.IdBarang equals c.Id
+                            where c.IdPenjual == pj.Id
+                            group a by a.Id into transaksi
+                            select transaksi.FirstOrDefault()).ToList(); 
+            return View("DataTransaksi",atr); 
     }
 }

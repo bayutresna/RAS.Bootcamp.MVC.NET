@@ -48,14 +48,14 @@
         <a type="button" class="btn btn-primary" asp-action="Pembayaran" asp-controller="Transaksi" asp-route-id = "@Model.Id" >Verifikasi Pembayaran</a>
     </th>
     }
-    @if ((User.IsInRole("Admin")) && ((@Model.StatusTransaksi == "MenungguKonfirmasi") || (@Model.StatusTransaksi == "MenungguBayar")))
+    @if ( (@Model.StatusTransaksi == "Diproses"))
     {
     <th>
         <a type="button" class="btn btn-danger" asp-action = "BatalTransaksi" asp-controller="Transaksi" asp-route-id="@Model.Id">Batalkan Transaksi</a>
     </th>
     }
     
-    @if (@User.IsInRole("Admin") && (@Model.StatusTransaksi == "Diproses")){
+    @if (@User.IsInRole("Penjual") && (@Model.StatusTransaksi == "Diproses")){
     <th>
         <a type="button" class="btn btn-primary" asp-action = "KirimBarang" asp-controller="Transaksi" asp-route-id="@Model.Id">Kirim Barang</a>
     </th>
